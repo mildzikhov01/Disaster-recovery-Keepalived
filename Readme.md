@@ -172,7 +172,7 @@ GigabitEthernet0/1 - Group 1 (version 2)
 
 ![1](Screenshot_6.png)`
 
-[script.txt]([[https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/c9946cdccedc9ee0f2a957e550adb29085033472/script.txt](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/script.txt)](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/script.txt))
+[script.txt](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/script.txt)
 
 [conf.txt](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/conf.txt)
 
