@@ -130,7 +130,7 @@ GigabitEthernet0/1 - Group 1 (version 2)
 
 5. Ping проходит успешно
 
-
+![1](Screenshot_8.png)`
 ---
 
 ### Задание 2
