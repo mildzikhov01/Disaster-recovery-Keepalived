@@ -112,8 +112,8 @@ GigabitEthernet0/1 - Group 1 (version 2)
   Active router is local
   Standby router is 192.168.1.2
   Priority 100 (default 100)
-  Group name is hsrp-Gig0/1-1 (default) ```
-
+  Group name is hsrp-Gig0/1-1 (default)
+```
 
 # По условию задания необходимо сделать проверить корректность настройки, разорвать один из кабелей между одним из маршрутизаторов и Switch0 и запустить ping между PC0 и Server0:
 1. Для начала отключаем кабель от Router0:
