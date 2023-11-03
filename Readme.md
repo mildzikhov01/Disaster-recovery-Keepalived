@@ -33,7 +33,7 @@
 # Проводим настройку Router0 с помощью данных команд:
 Заходим в интерфейс gigabitEthernet0/1:
 
-``` interface gigabitEthernet 0/1
+``` interface gigabitEthernet 0/1 ```
 
 Включим режим preempt
 
