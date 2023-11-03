@@ -72,7 +72,8 @@ GigabitEthernet0/1 - Group 1 (version 2)
   Standby router is local
   Priority 95 (configured 95)
     Track interface GigabitEthernet0/0 state Up decrement 10
-  Group name is hsrp-Gig0/1-1 (default) ```
+  Group name is hsrp-Gig0/1-1 (default)
+```
 
 # На Router1 нужно производим настройку. Для этого перейдем в настройки интерфейса. gigabitEthernet 0/1.
 
