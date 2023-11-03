@@ -75,7 +75,7 @@ GigabitEthernet0/1 - Group 1 (version 2)
   Group name is hsrp-Gig0/1-1 (default)
 ```
 
-# На Router1 нужно производим настройку. Для этого перейдем в настройки интерфейса. gigabitEthernet 0/1.
+### На Router1 нужно производим настройку. Для этого перейдем в настройки интерфейса. gigabitEthernet 0/1.
 
 ``` interface gigabitEthernet 0/1 ```
 
@@ -115,7 +115,7 @@ GigabitEthernet0/1 - Group 1 (version 2)
   Group name is hsrp-Gig0/1-1 (default)
 ```
 
-# По условию задания необходимо сделать проверить корректность настройки, разорвать один из кабелей между одним из маршрутизаторов и Switch0 и запустить ping между PC0 и Server0:
+### По условию задания необходимо сделать проверить корректность настройки, разорвать один из кабелей между одним из маршрутизаторов и Switch0 и запустить ping между PC0 и Server0:
 1. Для начала отключаем кабель от Router0:
 
 ``` %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down ```
@@ -150,7 +150,8 @@ GigabitEthernet0/1 - Group 1 (version 2)
 ``` exec 3> /dev/tcp/${HOST}/${PORT}
                if [ $? -eq 0 ] && [ -f "$FILE"]  ;
                then exit0 ;
-               else exit 1 ; ```
+               else exit 1 ;
+```
 
 В файле keep.conf прописана конфигурация по условию (каждые 3 секунды переносить IP на другой сервер).
 
