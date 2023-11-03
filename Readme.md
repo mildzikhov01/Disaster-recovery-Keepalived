@@ -30,6 +30,106 @@
 ### Ответ
 
 
+# Проводим настройку Router0 с помощью данных команд:
+Заходим в интерфейс gigabitEthernet0/1:
+
+``` interface gigabitEthernet 0/1
+
+Включим режим preempt
+
+``` standby 1 preempt
+
+Изменим приоритет маршрутизатора
+
+``` standby 1 priority 95
+
+Через CLI в Cisco Packet Tracer выведем информацию на Router0 с помощью команды sh standby
+
+``` GigabitEthernet0/0 - Group 0 (version 2)
+  State is Active
+    7 state changes, last state change 00:00:19
+  Virtual IP address is 192.168.0.1
+  Active virtual MAC address is 0000.0C9F.F000
+    Local virtual MAC address is 0000.0C9F.F000 (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 1.339 secs
+  Preemption enabled
+  Active router is local
+  Standby router is 192.168.0.3
+  Priority 105 (configured 105)
+    Track interface GigabitEthernet0/1 state Up decrement 10
+  Group name is hsrp-Gig0/0-0 (default)
+GigabitEthernet0/1 - Group 1 (version 2)
+  State is Standby
+    9 state changes, last state change 00:00:38
+  Virtual IP address is 192.168.1.1
+  Active virtual MAC address is 0000.0C9F.F001
+    Local virtual MAC address is 0000.0C9F.F001 (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 1.11 secs
+  Preemption enabled
+  Active router is 192.168.1.3
+  Standby router is local
+  Priority 95 (configured 95)
+    Track interface GigabitEthernet0/0 state Up decrement 10
+  Group name is hsrp-Gig0/1-1 (default)
+
+# На Router1 нужно производим настройку. Для этого перейдем в настройки интерфейса. gigabitEthernet 0/1.
+
+``` interface gigabitEthernet 0/1
+
+Настроим отслеживание интерфейса gigabitEthernet 0/0
+
+``` standby 1 track gigabitEthernet 0/0
+
+Через CLI в Cisco Packet Tracer выведем информацию на Router0 с помощью команды sh standby
+
+``` Router1#sh standby 
+GigabitEthernet0/0 - Group 0 (version 2)
+  State is Standby
+    9 state changes, last state change 00:00:39
+  Virtual IP address is 192.168.0.1
+  Active virtual MAC address is 0000.0C9F.F000
+    Local virtual MAC address is 0000.0C9F.F000 (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 1.671 secs
+  Preemption enabled
+  Active router is 192.168.0.2
+  Standby router is local
+  Priority 100 (default 100)
+    Track interface GigabitEthernet0/1 state Up decrement 10
+  Group name is hsrp-Gig0/0-0 (default)
+GigabitEthernet0/1 - Group 1 (version 2)
+  State is Active
+    7 state changes, last state change 00:00:27
+  Virtual IP address is 192.168.1.1
+  Active virtual MAC address is 0000.0C9F.F001
+    Local virtual MAC address is 0000.0C9F.F001 (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 1.263 secs
+  Preemption enabled
+  Active router is local
+  Standby router is 192.168.1.2
+  Priority 100 (default 100)
+  Group name is hsrp-Gig0/1-1 (default)
+
+
+# По условию задания необходимо сделать проверить корректность настройки, разорвать один из кабелей между одним из маршрутизаторов и Switch0 и запустить ping между PC0 и Server0:
+1. Для начала отключаем кабель от Router0:
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down
+
+2. Состояние Router1 сразу меняется на Active
+
+%HSRP-6-STATECHANGE: GigabitEthernet0/0 Grp 0 state Standby -> Active
+
+3. Ping проходит успешно
+
+4. Подключаем кабель назад к Router0 и отключаем кабель от Router1
+
+5. Ping проходит успешно
+
+
 ---
 
 ### Задание 2
@@ -43,8 +143,17 @@
 
 ### Ответ
 
+Мной были запущены две виртуальные машины на Linux Debian, далее по лекции настроен Keepalived по примеру конфигурационного файла. Запустил веб-сервер на nginx и написал свой Bash-скрипт который будет проверять доступность порта данного веб-сервера и существование файла index.html в root-директории данного веб-сервера:
 
 
+``` exec 3> /dev/tcp/${HOST}/${PORT}
+               if [ $? -eq 0 ] && [ -f "$FILE"]  ;
+               then exit0 ;
+               else exit 1 ;
+
+В файле keep.conf прописана конфигурация по условию (каждые 3 секунды переносить IP на другой сервер).
+
+Ниже представлены скриншоты работы виртуальных машин и Bash-скриптов:
 
 ---
 
