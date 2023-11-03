@@ -132,7 +132,8 @@ GigabitEthernet0/1 - Group 1 (version 2)
 
 ![1](Screenshot_8.png)`
 
-Файл PKT
+[Файл PKT mildzikhov.pkt](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/c9946cdccedc9ee0f2a957e550adb29085033472/mildzikhov.pkt)
+
 ---
 
 ### Задание 2
@@ -157,7 +158,7 @@ GigabitEthernet0/1 - Group 1 (version 2)
 
 В файле conf.txt прописана конфигурация по условию (каждые 3 секунды переносить IP на другой сервер).
 
-Ниже представлены скриншоты работы виртуальных машин и Bash-скриптов:
+Ниже представлены скриншоты работы виртуальных машин и Bash-скриптов (а также файлы самих скриптов):
 
 ![1](Screenshot_1.png)`
 
@@ -170,6 +171,10 @@ GigabitEthernet0/1 - Group 1 (version 2)
 ![1](Screenshot_5.png)`
 
 ![1](Screenshot_6.png)`
+
+[script.txt]([[https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/c9946cdccedc9ee0f2a957e550adb29085033472/script.txt](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/script.txt)](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/script.txt))
+
+[conf.txt](https://github.com/mildzikhov01/Disaster-recovery-Keepalived/blob/main/conf.txt)
 
 ---
 
