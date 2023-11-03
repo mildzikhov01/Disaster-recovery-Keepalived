@@ -37,11 +37,11 @@
 
 Включим режим preempt
 
-``` standby 1 preempt
+``` standby 1 preempt ```
 
 Изменим приоритет маршрутизатора
 
-``` standby 1 priority 95
+``` standby 1 priority 95 ```
 
 Через CLI в Cisco Packet Tracer выведем информацию на Router0 с помощью команды sh standby
 
@@ -72,15 +72,15 @@ GigabitEthernet0/1 - Group 1 (version 2)
   Standby router is local
   Priority 95 (configured 95)
     Track interface GigabitEthernet0/0 state Up decrement 10
-  Group name is hsrp-Gig0/1-1 (default)
+  Group name is hsrp-Gig0/1-1 (default) ```
 
 # На Router1 нужно производим настройку. Для этого перейдем в настройки интерфейса. gigabitEthernet 0/1.
 
-``` interface gigabitEthernet 0/1
+``` interface gigabitEthernet 0/1 ```
 
 Настроим отслеживание интерфейса gigabitEthernet 0/0
 
-``` standby 1 track gigabitEthernet 0/0
+``` standby 1 track gigabitEthernet 0/0 ```
 
 Через CLI в Cisco Packet Tracer выведем информацию на Router0 с помощью команды sh standby
 
@@ -111,17 +111,17 @@ GigabitEthernet0/1 - Group 1 (version 2)
   Active router is local
   Standby router is 192.168.1.2
   Priority 100 (default 100)
-  Group name is hsrp-Gig0/1-1 (default)
+  Group name is hsrp-Gig0/1-1 (default) ```
 
 
 # По условию задания необходимо сделать проверить корректность настройки, разорвать один из кабелей между одним из маршрутизаторов и Switch0 и запустить ping между PC0 и Server0:
 1. Для начала отключаем кабель от Router0:
 
-%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down
+``` %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to down ```
 
 2. Состояние Router1 сразу меняется на Active
 
-%HSRP-6-STATECHANGE: GigabitEthernet0/0 Grp 0 state Standby -> Active
+``` %HSRP-6-STATECHANGE: GigabitEthernet0/0 Grp 0 state Standby -> Active ```
 
 3. Ping проходит успешно
 
@@ -149,7 +149,7 @@ GigabitEthernet0/1 - Group 1 (version 2)
 ``` exec 3> /dev/tcp/${HOST}/${PORT}
                if [ $? -eq 0 ] && [ -f "$FILE"]  ;
                then exit0 ;
-               else exit 1 ;
+               else exit 1 ; ```
 
 В файле keep.conf прописана конфигурация по условию (каждые 3 секунды переносить IP на другой сервер).
 
